@@ -1,5 +1,13 @@
+import { Cart } from './components/Cart';
+import { Desserts } from './components/Desserts';
+
 function App() {
-	return <h1>Hola</h1>;
+	return (
+		<>
+			<Desserts />
+			<Cart />
+		</>
+	);
 }
 
 export default App;
