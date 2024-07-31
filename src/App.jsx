@@ -1,12 +1,15 @@
-import { Cart } from './components/Cart';
+import { EmptyCart } from './components/Cart';
 import { Desserts } from './components/Desserts';
+import { CartProvider } from './context/CartProvider';
 
 function App() {
 	return (
-		<main className='bg-[--Rose-100]'>
-			<Desserts />
-			<Cart />
-		</main>
+		<CartProvider>
+			<main className='bg-[--Rose-100]'>
+				<Desserts />
+				<EmptyCart />
+			</main>
+		</CartProvider>
 	);
 }
 

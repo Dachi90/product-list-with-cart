@@ -10,10 +10,7 @@ export const Desserts = () => {
 					return (
 						<Card
 							key={dessert.id}
-							image={dessert.image.mobile}
-							name={dessert.name}
-							category={dessert.category}
-							price={dessert.price}
+							product={dessert}
 						/>
 					);
 				})}
