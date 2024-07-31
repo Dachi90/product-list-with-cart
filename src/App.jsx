@@ -1,4 +1,4 @@
-import { EmptyCart } from './components/Cart';
+import { EmptyCart } from './components/EmptyCart';
 import { Desserts } from './components/Desserts';
 import { CartProvider } from './context/CartProvider';
 

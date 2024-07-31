@@ -1,15 +1,10 @@
 import { useContext } from 'react';
-import AddToCart from '../assets/images/icon-add-to-cart.svg';
 import { cartContext } from '../context/CartProvider';
+import { Button } from './Button';
+import { Button2 } from './Button2';
 
 export const Card = ({ product }) => {
-	const { cartState, addToCart, deleteToCart } = useContext(cartContext);
-
-	const onAddToCart = (product) => {
-		addToCart(product);
-		console.log(cartState);
-	};
-
+	const { cartState } = useContext(cartContext);
 	return (
 		<article className='flex flex-col'>
 			<img
@@ -17,19 +12,7 @@ export const Card = ({ product }) => {
 				alt='Image dessert'
 				className='rounded-lg hover:border-2 hover:border-[--Red]'
 			/>
-
-			<button
-				className='border-solid border border-[--Rose-900] rounded-3xl p-2 px-6 self-center -mt-5 bg-white flex gap-2 items-center font-bold'
-				onClick={() => {
-					onAddToCart(product);
-				}}
-			>
-				<img
-					src={AddToCart}
-					alt='add to cart'
-				/>
-				Add to card
-			</button>
+			{cartState.length === 0 ? <Button product={product} /> : <Button2 />}
 
 			<p className='text-[--Rose-400]'>{product.category}</p>
 			<p className='text-[--Rose-900] font-bold'>{product.name}</p>
