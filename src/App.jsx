@@ -1,15 +1,25 @@
-import { EmptyCart } from './components/EmptyCart';
-import { Desserts } from './components/Desserts';
-import { CartProvider } from './context/CartProvider';
+import CartContextProvider from './context/CartContext';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import AppLayout from './AppLayout';
+
+const queryClient = new QueryClient({
+	defaultOptions: {
+		queries: {
+			staleTime: 0,
+		},
+	},
+});
 
 function App() {
 	return (
-		<CartProvider>
-			<main className='bg-[--Rose-100]'>
-				<Desserts />
-				<EmptyCart />
-			</main>
-		</CartProvider>
+		<QueryClientProvider client={queryClient}>
+			<CartContextProvider>
+				<AppLayout />
+			</CartContextProvider>
+			<ReactQueryDevtools initialIsOpen={false} />
+		</QueryClientProvider>
 	);
 }
 
